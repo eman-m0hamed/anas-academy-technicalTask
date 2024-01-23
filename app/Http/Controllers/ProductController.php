@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 class ProductController extends Controller
 {
     function index()
@@ -26,7 +27,8 @@ class ProductController extends Controller
         return view('products.show', ['product' => $product]);
     }
     function create(){
-        return view('products.create');
+        $categories = Category::get();
+        return view('products.create', ['categories' => $categories]);
 
     }
 
@@ -49,7 +51,8 @@ class ProductController extends Controller
         if(!$product){
             return view('products.edit', ['notFound' => "This Product doesn't Exist"]);
         }
-        return view('products.edit', ['product' => $product]);
+        $categories = Category::get();
+        return view('products.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     function edit($id, Request $request){
