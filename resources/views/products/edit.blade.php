@@ -46,8 +46,12 @@
 
                     <div class="mb-3">
                         <label for="category_id" class="form-label">Product Category</label>
-                        <input type="number" class="form-control @error('category_id') is-invalid @enderror"
-                            id="category_id" name="category_id" value="{{ $product->category_id }}">
+                        <select name="category_id" id="category_id" class="form-select">
+                            <option disabled selected>Choose a Category</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"  @if($category->id == $product->category_id) selected @endif>{{ $category->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     @error('category_id')
                         <div class="alert alert-danger">{{ $message }}</div>
