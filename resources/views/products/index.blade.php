@@ -21,8 +21,13 @@
 @section('main')
     <section class="container">
         <h1>All Products</h1>
-        <a href="{{ route('product.create') }}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">create new
-            Product</a>
+        <a href="{{ route('product.create') }}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">
+            create new Product
+        </a>
+
+        <a href="{{ route('product.greatPrice') }}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">
+            Product with price more than 3000$
+        </a>
         @if (Session::has('success'))
             <div class="alert alert-success">{{ Session::get('success') }}</div>
         @endif
