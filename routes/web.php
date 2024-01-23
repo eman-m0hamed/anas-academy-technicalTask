@@ -15,12 +15,14 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('logs.request'); // add logs.request middleware
+
 // product routes
 
 // get all products
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 
+// get all products which their price more than 3000$
 Route::get('/products/great', [ProductController::class, 'greatPrice'])->name('product.greatPrice');
 
 // add new product
