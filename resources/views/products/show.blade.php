@@ -56,7 +56,8 @@
                 <p>Product info</p>
 
                 <p> <span>Name:- </span> {{ $product->name }} </p>
-                <p> <span> category:- </span> {{ $product->category_id }} </p>
+                <p> <span> category id:- </span> {{ $product->category_id }} </p>
+                <p> <span> category name:- </span> {{ $product->category->name }} </p>
                 <p> <span> Price:- </span> {{ $product->price }} </p>
                 <p> <span> Quantity:- </span> {{ $product->quantity }} </p>
                 <p> <span>Created at:- </span> {{ $product->created_at }} </p>

@@ -49,8 +49,8 @@
                         <tr>
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->name }}</td>
-                            {{-- <td>{{ $product->category->name }}</td> --}}
-                            <td>{{ $product->category_id }}</td>
+                            <td>{{ $product->category->name }}</td>
+                            {{-- <td>{{ $product->category_id }}</td> --}}
                             <td>{{ $product->price }}</td>
                             <td>{{ $product->quantity }}</td>
                             <td>{{ $product->created_at }}</td>
