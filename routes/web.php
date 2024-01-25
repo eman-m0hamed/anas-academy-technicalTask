@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\paymentCheckOutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,4 +61,11 @@ Route::middleware([
     // update product
     Route::put('/products/{id}', [ProductController::class, 'edit'])->name('products.edit');
 
+    // payment routes
+    Route::get('/payment', [PaymentController::class, 'create'])->name('payment.form');
+
+    Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process.payment');
 });
+
+
+
