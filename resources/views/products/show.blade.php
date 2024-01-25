@@ -48,7 +48,11 @@
                 <p class="alert alert-danger text-center">{{ $notFound }}</p>
             </div>
         @else
+            @if (Session::has('success'))
+                <div class="alert alert-success" style="width:600px">{{ Session::get('success') }}</div>
+            @endif
             <div class="content">
+
                 <p>Product info</p>
 
                 <p> <span>Name:- </span> {{ $product->name }} </p>
@@ -58,10 +62,10 @@
                 <p> <span>Created at:- </span> {{ $product->created_at }} </p>
 
                 <div class="d-flex gap-3 mx-5 justify-content-end">
-                    <form action="{{ route('product.update', $product->id) }}" method="get">
+                    <form action="{{ route('products.update', $product->id) }}" method="get">
                         <button class="btn btn-success">Edit</button>
                     </form>
-                    <form action="{{ route('product.destroy', $product->id) }}" method="post">
+                    <form action="{{ route('products.destroy', $product->id) }}" method="post">
                         @method('delete')
                         @csrf()
                         <button class="btn btn-danger">Delete</button>

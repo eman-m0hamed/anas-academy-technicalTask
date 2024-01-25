@@ -13,7 +13,7 @@
         <section class="container">
             <div class="row">
                 <h1 class="col-8 mt-5">Edit Product</h1>
-                <form action="{{ route('product.edit', $product->id) }}" method="post" class="col-6 mx-5">
+                <form action="{{ route('products.edit', $product->id) }}" method="post" class="col-6 mx-5">
                     @method('put')
                     @csrf
 

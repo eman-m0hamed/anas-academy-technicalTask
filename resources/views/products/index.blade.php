@@ -21,11 +21,11 @@
 @section('main')
     <section class="container">
         <h1>All Products</h1>
-        <a href="{{ route('product.create') }}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">
+        <a href="{{ route('products.create') }}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">
             create new Product
         </a>
 
-        <a href="{{ route('product.greatPrice') }}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">
+        <a href="{{ route('products.greatPrice') }}" style="font-size:20px; display:inline-block; margin:20px 5px 5px;">
             Product with price more than 3000$
         </a>
         @if (Session::has('success'))
@@ -55,12 +55,12 @@
                             <td>{{ $product->quantity }}</td>
                             <td>{{ $product->created_at }}</td>
                             <td>
-                                <form action="{{ route('product.show', $product->id) }}" method="get">
+                                <form action="{{ route('products.show', $product->id) }}" method="get">
                                     <button class="btn btn-primary">Show</button>
                                 </form>
-                                <form action="{{ route('product.update', $product->id) }}" method="get">
+                                <form action="{{ route('products.update', $product->id) }}" method="get">
                                     <button class="btn btn-success">Edit</button></form>
-                                <form action="{{ route('product.destroy', $product->id) }}" method="post">
+                                <form action="{{ route('products.destroy', $product->id) }}" method="post">
                                     @method('delete')
                                     @csrf()
                                     <button class="btn btn-danger">Delete</button>

@@ -66,7 +66,7 @@ class ProductController extends Controller
         ]);
         $updatedProduct = $request->except(['_method', '_token']);
         $product->Update($updatedProduct);
-        return redirect('products')->with('success', "The Product is Updated Successfully");
+        return redirect('products/'.$product->id)->with('success', "The Product is Updated Successfully");
 
     }
 
