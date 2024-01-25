@@ -37,10 +37,10 @@ Route::middleware([
 // product routes
 
 // get all products
-Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 // get all products which their price more than 3000$
-Route::get('/products/great', [ProductController::class, 'greatPrice'])->name('product.greatPrice')->middleware('logs.request'); // add logs.request middleware;
+Route::get('/products/great', [ProductController::class, 'greatPrice'])->name('products.greatPrice')->middleware('logs.request'); // add logs.request middleware;
 
 // add new product
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
@@ -55,7 +55,7 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('products
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 // update product form
-Route::get('/products/{id}/update', [ProductController::class, 'update'])->name('product.update');
+Route::get('/products/{id}/update', [ProductController::class, 'update'])->name('products.update');
 
 // update product
-Route::put('/products/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('/products/{id}', [ProductController::class, 'edit'])->name('products.edit');
