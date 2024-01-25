@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\BaseController;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
-class ProductController extends Controller
+class ProductController extends BaseController
 {
     function index(Request $request)
     {
@@ -16,23 +16,17 @@ class ProductController extends Controller
 
             $products = Product::paginate($limit, ['*'], 'page', $page);
 
-            $response = [
-                'success' => true,
+            $details = [
                 'currentPage' => $products->currentPage(),
                 'perPage' => $products->perPage(),
                 'totalPages' => $products->lastPage(),
-                'totalProducts' => $products->total(),
-                'products' => $products->items(),
-                'message' => "Products data is Retrieved successfully",
+                'totalProducts' => $products->total()
             ];
 
-            return response()->json($response, 200);
+            return $this->sendResponse($products->items(), "Products data is Retrieved successfully", $details);
+
         } catch (\Exception $error) {
-            $response = [
-                'success' => false,
-                'error' => "Server Error",
-            ];
-            return response()->json($response, 500);
+            return $this->sendError($error, "server error", 500);
         }
     }
 }
