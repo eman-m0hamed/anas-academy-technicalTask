@@ -40,6 +40,7 @@
 
 ## Running
 To run the project write this command in project terminal
+    
     php artisan serve
 
 
@@ -60,14 +61,14 @@ Visit Stripe and create an account if you don't have one through this link.
     STRIPE_SECRET=your_secret_key
 
 ## web authentication 
-    used jetstream intera js as Laravel's built-in authentication system.
+used jetstream intera js as Laravel's built-in authentication system.
 
 ## api authentication
-    - used sanctum package for authentication.
-    - install sanctum package, then add its gaurds in config/auth.php file.
-    - set it middleware in app/Http/Kernel.php file.
-    - products routes can't access without the user login.
-    - consider the user is an admin.
+- used sanctum package for authentication.
+- install sanctum package, then add its gaurds in config/auth.php file.
+- set it middleware in app/Http/Kernel.php file.
+- products routes can't access without the user login.
+- consider the user is an admin.
 
 # Generate API Token:
 - To generate API tokens for users, can use Sanctum's createToken method and return plainTextToken that use the user api and secret_key to generate the token text.  
@@ -79,6 +80,7 @@ Visit Stripe and create an account if you don't have one through this link.
 
 ## How to send token with request
 To make requests to the protected API endpoint, you need to include an access token in the request headers.
+    
     Authorization: Bearer {access_token}
 
 
