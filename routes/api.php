@@ -20,7 +20,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // get all products
-Route::get('products', [ProductController::class, 'index'])->middleware('auth:sanctum');
+// Route::get('products', [ProductController::class, 'index'])->middleware('auth:sanctum');
+
+// or put the products route in middleware group to apply this middleware for all routes inside it.
+Route::middleware('auth:sanctum')->group( function(){
+
+    Route::get('products', [ProductController::class, 'index']);
+    // other routes there that want to apply this middleware to them.
+});
 
 // login route
 Route::post('login', [AuthController::class, 'login']);
