@@ -29,9 +29,13 @@ Route::middleware('auth:sanctum')->group( function(){
     // other routes there that want to apply this middleware to them.
 });
 
+// store product route
+Route::post('products', [ProductController::class, 'store']);
+
 // login route
 Route::post('login', [AuthController::class, 'login']);
 
 // register route
 Route::post('register', [AuthController::class, 'register']);
+
 
