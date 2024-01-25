@@ -43,16 +43,16 @@ Route::get('/products', [ProductController::class, 'index'])->name('product.inde
 Route::get('/products/great', [ProductController::class, 'greatPrice'])->name('product.greatPrice')->middleware('logs.request'); // add logs.request middleware;
 
 // add new product
-Route::post('/products', [ProductController::class, 'store'])->name('product.store');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
 // add new product form
-Route::get('/products/create', [ProductController::class, 'create'])->name('product.create');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 
 // get product
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 // delete product
-Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 // update product form
 Route::get('/products/{id}/update', [ProductController::class, 'update'])->name('product.update');
