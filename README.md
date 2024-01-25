@@ -70,7 +70,7 @@ used jetstream intera js as Laravel's built-in authentication system.
 - products routes can't access without the user login.
 - consider the user is an admin.
 
-# Generate API Token:
+## Generate API Token:
 - To generate API tokens for users, can use Sanctum's createToken method and return plainTextToken that use the user api and secret_key to generate the token text.  
 
 ## Access ApI token
