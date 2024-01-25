@@ -48,6 +48,7 @@ class ProductController extends Controller
 
     function update($id){
         $product = Product::find($id);
+
         if(!$product){
             return view('products.edit', ['notFound' => "This Product doesn't Exist"]);
         }
@@ -57,6 +58,7 @@ class ProductController extends Controller
 
     function edit($id, Request $request){
         $product = Product::find($id);
+        $this->authorize('update', $product);
         $request->validate([
             'name'=>'required|string',
             'price'=>'required',
@@ -71,7 +73,9 @@ class ProductController extends Controller
     }
 
     function destroy($id){
-        $product = Product::find($id)->delete();
+        $product = Product::find($id);
+        $this->authorize('delete', $product);
+        $product->delete();
         return redirect('products')->with('success', "The Product is Deleted Successfully");
     }
 
